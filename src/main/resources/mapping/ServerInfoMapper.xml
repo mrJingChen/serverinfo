@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mrjingchen.ServerInfo.mapper.ServerInfoMapper">
+	<resultMap id="serverInfo" type="cn.mrjingchen.ServerInfo.model.ServerInfo">
+		<id column="si_id" property="siId"></id>
+		<result column="si_port" property="siPort" />
+		<result column="si_name" property="siName" />
+		<result column="si_purpose" property="siPurpose" />
+		<result column="si_conf" property="siConf" />
+		<result column="si_author" property="siAuthor" />
+		<result column="si_status" property="siStatus" />
+		<result column="si_create_time" property="siCreateTime" />
+		<result column="si_update_time" property="siUpdateTime" />
+	</resultMap>
+	
+	<sql id="commonColumnList">
+		si_id, si_port, si_name, si_purpose, si_conf, si_author, si_status, si_create_time, si_update_time
+	</sql>
+	
+	<!-- 列表查询 -->
+	<select id="listSelect" resultMap="serverInfo">
+		SELECT <include refid="commonColumnList"></include>
+		FROM t_server_info 
+		ORDER BY si_port
+	</select>
+	
+	<!-- 列表查询 -->
+	<select id="listSelectKeyword" resultMap="serverInfo" parameterType="String">
+		SELECT <include refid="commonColumnList"></include>
+		FROM t_server_info 
+		WHERE CONCAT(si_port, si_name, si_purpose, si_conf, si_author, si_status, si_create_time, si_update_time) REGEXP #{keyword}
+		ORDER BY si_port
+	</select>
+	
+</mapper>
