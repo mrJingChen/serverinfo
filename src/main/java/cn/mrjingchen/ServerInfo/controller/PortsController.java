@@ -53,7 +53,7 @@ public class PortsController {
     
     /**
      * 1、默认加载查询列表（分页）
-     * {@link http://127.0.0.1:8081/ports?pageNum=1&pageSize=5 }
+     * {@link http://127.0.0.1:8081/serverInfo?pageNum=1&pageSize=10 }
      * @version v1.0
      * @param pageNum
      * @param pageSize
@@ -86,7 +86,7 @@ public class PortsController {
     
     /**
      * 2、关键词模糊查询列表（分页）
-     * {@link http://127.0.0.1:8081/ports/keyword }
+     * {@link http://127.0.0.1:8081/serverInfo/keyword?keyword=XX&pageNum=1&pageSize=10 }
      * @version v1.0
      * @param pageNum
      * @param pageSize
@@ -124,6 +124,7 @@ public class PortsController {
     
     /**
      * 添加和修改服务
+     * {@link http://127.0.0.1:8081/serverInfo/edit; -d "{\"id\":7, \"port\":12100, \"name\":\"server-info(v1.0)\", \"purpose\":...}" }
      * @version v1.0
      * @param serverInfoVo
      * @return

@@ -45,6 +45,7 @@
 				</thead>
 				<tbody>
 					<tr v-if="flag" v-for="serverInfo in listServerInfo" :key="serverInfo.id">
+						<!-- 参考：https://jingyan.baidu.com/article/925f8cb8ad061fc0dde0562a.html -->
 						<td v-html="$options.filters.addColor(serverInfo.port, kw_key!='' ? kw_key : kw_key_color)"> </td>
 						<td v-html="$options.filters.addColor(serverInfo.name, kw_key!='' ? kw_key : kw_key_color)"> </td>
 						<td v-html="$options.filters.addColor(serverInfo.purpose, kw_key!='' ? kw_key : kw_key_color)"> </td>
@@ -331,6 +332,7 @@
 		
 		filters: {
 			addColor(originContent, searchContent){
+				/* 参考：https://www.cnblogs.com/jasonlam/p/7070604.html */
 				return originContent.toString().replace(new RegExp(searchContent, 'g'), "<span style='color: red'>" + searchContent + "</span>");
 			}
 		},
