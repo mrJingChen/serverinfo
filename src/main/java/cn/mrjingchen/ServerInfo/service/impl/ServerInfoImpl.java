@@ -27,5 +27,15 @@ public class ServerInfoImpl implements IServerInfo {
         return serverInfoMapper.listSelectKeyword(keyword);
     }
 
+    @Override
+    public Integer addServerInfo(ServerInfo serverInfo) {
+        return serverInfoMapper.addServerInfo(serverInfo);
+    }
+
+    @Override
+    public Integer updateServerInfo(ServerInfo serverInfo) {
+        return serverInfoMapper.updateServerInfo(serverInfo);
+    }
+
 
 }

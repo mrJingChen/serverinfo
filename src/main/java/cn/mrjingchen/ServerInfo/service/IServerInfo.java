@@ -29,4 +29,19 @@ public interface IServerInfo {
      */
     List<ServerInfo> listSelectKeyword(Integer pageNum, Integer pageSize, String keyword);
     
+    /**
+     * 添加服务
+     * @version v2.0
+     * @param serverInfo
+     * @return
+     */
+    Integer addServerInfo(ServerInfo serverInfo);
+    
+    /**
+     * 更新服务
+     * @version v2.0
+     * @param serverInfo
+     * @return
+     */
+    Integer updateServerInfo(ServerInfo serverInfo);
 }

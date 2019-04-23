@@ -32,4 +32,32 @@
 		ORDER BY si_port
 	</select>
 	
+	<!-- 添加服务 -->
+	<insert id="addServerInfo" parameterType="serverInfo">
+		INSERT INTO t_server_info(si_port, si_name
+			<if test="siPurpose != null and siPurpose != ''"> , si_purpose </if>
+			<if test="siConf != null and siConf != ''"> , si_conf </if>
+			<if test="siAuthor != null and siAuthor != ''"> , si_author </if>
+			<if test="siStatus != null and siStatus != ''"> , si_status </if> )
+		VALUES(#{siPort}, #{siName}
+			<if test="siPurpose != null and siPurpose != ''"> , #{siPurpose} </if>
+			<if test="siConf != null and siConf != ''"> , #{siConf} </if>
+			<if test="siAuthor != null and siAuthor != ''"> , #{siAuthor} </if>
+			<if test="siStatus != null and siStatus != ''"> , #{siStatus} </if> )
+	</insert>
+	
+	<!-- 修改服务 -->
+	<update id="updateServerInfo" parameterType="serverInfo">
+		UPDATE t_server_info 
+		<trim prefix="set" suffixOverrides=",">
+			<if test="siPort != null and siPort != ''"> si_port = #{siPort}, </if>
+			<if test="siName != null and siName != ''"> si_name = #{siName}, </if>
+			<if test="siPurpose != null and siPurpose != ''"> si_purpose = #{siPurpose}, </if>
+			<if test="siConf != null and siConf != ''"> si_conf = #{siConf}, </if>
+			<if test="siAuthor != null and siAuthor != ''"> si_author = #{siAuthor}, </if>
+			<if test="siStatus != null and siStatus != ''"> si_status = #{siStatus}, </if>
+		</trim>
+		WHERE si_id = #{siId}
+	</update>
+	
 </mapper>

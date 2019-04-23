@@ -127,16 +127,30 @@ public class PortsController {
     }
     
     /**
-     * 添加服务
+     * 添加和修改服务
      * @version v2.0
      * @param serverInfoVo
      * @return
      */
     @ResponseBody
-    @PostMapping("serverInfo/add")
-    public Result<Integer> addServerInfo(@RequestBody ServerInfoVo serverInfoVo) {
+    @PostMapping("serverInfo/edit")
+    public Result<Integer> editServerInfo(@RequestBody ServerInfoVo serverInfoVo) {
         log.info("---->serverInfo/add-addServerInfo:{}", serverInfoVo);
-        
+        if(null == serverInfoVo || null == serverInfoVo.getSiPort() || 
+                null == serverInfoVo.getSiName() || "".equals(serverInfoVo.getSiName().trim())){
+            return new Result<>(400, "请求参数缺失, port和name不能为空", 0);
+        }
+        ServerInfo serverInfo = new ServerInfo();
+        BeanUtils.copyProperties(serverInfoVo, serverInfo);
+        Integer result = null;
+        if(null != serverInfo.getSiId()){
+            result = serverInfoImpl.updateServerInfo(serverInfo);
+        }else {
+            result = serverInfoImpl.addServerInfo(serverInfo);
+        }
+        if(null == result){
+            return new Result<>(500, "数据保存0条", 0);
+        }
         return new Result<>(200, "serverInfo/add-addServerInfo-成功", 1);
     }
     
