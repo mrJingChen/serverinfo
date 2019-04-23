@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
-    <title>端口统计</title>
+    <title>服务端口统计</title>
     <#include "./common/head.ftl">
     
 <body>
@@ -65,7 +65,7 @@
 	    </div>
 		
 		
-		<!-- 新增遮罩层 -->
+		<!-- 新增、编辑，遮罩层 -->
 		<div class="modal fade" id="modal-container-509177" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -142,7 +142,6 @@
 		el: '#app',
 		data: {
 			flag: false,
-			default_key: '114',
 			default_text: '查询数据为空 o(╥﹏╥)o',
 			kw_key: '',
 			kw_key_queryflag: '',
@@ -159,7 +158,7 @@
 			status: '',
 			
 		},
-		/* 页面加载完, (1)查询列表; (2)结果分页；(3)分页查询列表 */
+		/* 页面加载完， (1)查询列表、结果分页；(2)分页时查询列表 */
 		mounted(){
 			this.searchList(1, 10);
 		},
@@ -264,7 +263,7 @@
 				}
 			},
 			
-			/* 3.1、修改服务数据回显  */
+			/* 3.1、修改服务，数据回显  */
 			updateServer(serverInfo) {
 				vm.serverTitle = "编辑";
 				vm.id = serverInfo.id;
@@ -276,7 +275,7 @@
 				vm.status = serverInfo.status;
 			},
 			
-			/* 3.2、新增服务数据回显  */	  
+			/* 3.2、新增服务，数据清空  */	  
 			addServer() {
 				vm.serverTitle = "新增";
 				vm.id = '';
@@ -290,7 +289,7 @@
 			
 			/* 3.3.、新增和修改服务 */
 			editServer() {
-				this.default_text = "新增服务，数据存储中...";
+				this.default_text = "请稍后，数据存储中...";
 				var requestUrl = "${url}" + "/serverInfo/edit";
 				console.log("--3.editServer-url: " + requestUrl);
 				var config = {

@@ -1,0 +1,38 @@
+server: 
+#  port: 12100
+  tomcat:
+  # post提交允许8M(8192)
+    max-http-post-size: 10240
+    max-http-header-size: 8192
+    
+spring: 
+  ### 数据库
+  datasource: 
+    url: jdbc:mysql://10.92.183.128:3306/server_info?characterEncoding=utf-8&useSSL=false&useAffectedRows=true&allowMultiQueries=true
+    driver-class-name: com.mysql.jdbc.Driver
+    username: iot
+    password: iot@MYSQL5.7
+    # hikari配置
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: serverInfo-HikariCP
+      auto-commit: true
+      connection-timeout: 30000
+      idle-timeout: 7200
+      max-lifetime: 7200
+      maximum-pool-size: 10
+
+
+# 数据库操作
+mybatis: 
+  mapper-locations: classpath*:mapping/*Mapper.xml
+  type-aliases-package: cn.mrjingchen.ServerInfo.model
+
+
+# ----log----
+logging: 
+  file: ./log/server_info.log
+  pattern: 
+    file: "[server_info] %d{yyyy/MM/dd-HH:mm:ss} %highlight(%p) [%t] %replace(%caller{1}){'Caller\\+0|\r|\n|\\s', ' '}- %m%n"
+
+  

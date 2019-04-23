@@ -24,7 +24,7 @@
 		ORDER BY si_port
 	</select>
 	
-	<!-- 列表查询 -->
+	<!-- 列表模糊查询 -->
 	<select id="listSelectKeyword" resultMap="serverInfo" parameterType="String">
 		SELECT <include refid="commonColumnList"></include>
 		FROM t_server_info 

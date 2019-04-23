@@ -31,7 +31,7 @@ public interface IServerInfo {
     
     /**
      * 添加服务
-     * @version v2.0
+     * @version v1.0
      * @param serverInfo
      * @return
      */
@@ -39,7 +39,7 @@ public interface IServerInfo {
     
     /**
      * 更新服务
-     * @version v2.0
+     * @version v1.0
      * @param serverInfo
      * @return
      */

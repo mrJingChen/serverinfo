@@ -1,7 +1,7 @@
 -- 建库
-DROP DATABASE IF EXISTS `server_ports`;
-CREATE DATABASE `server_ports`;
-USE `server_ports`;
+DROP DATABASE IF EXISTS `server_info`;
+CREATE DATABASE `server_info`;
+USE `server_info`;
 
 
 DROP TABLE IF EXISTS t_server_info;

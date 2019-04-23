@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * <p>Description: </p>
  * @author charles·chen
- * @version v2.0
+ * @version v1.0
  */
 @Slf4j
 @Controller
@@ -38,6 +38,7 @@ public class PortsController {
     
     /**
      * 默认首页
+     * {@link http://127.0.0.1:8081 }
      * @version v1.0
      * @param request
      * @param map
@@ -48,11 +49,6 @@ public class PortsController {
         map.put("url", request.getRequestURL());
         log.info("---->index url:{}", map.get("url"));
         return "index";
-    }
-    
-    @GetMapping("demo")
-    public String demo() {
-        return "demo";
     }
     
     /**
@@ -91,7 +87,7 @@ public class PortsController {
     /**
      * 2、关键词模糊查询列表（分页）
      * {@link http://127.0.0.1:8081/ports/keyword }
-     * @version v2.0
+     * @version v1.0
      * @param pageNum
      * @param pageSize
      * @return
@@ -128,7 +124,7 @@ public class PortsController {
     
     /**
      * 添加和修改服务
-     * @version v2.0
+     * @version v1.0
      * @param serverInfoVo
      * @return
      */

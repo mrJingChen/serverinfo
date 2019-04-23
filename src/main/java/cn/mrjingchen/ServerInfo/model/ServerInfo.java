@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * <p>Description: </p>
  * @author charles·chen
- * @version v2.0
+ * @version v1.0
  */
 @Data
 public class ServerInfo {

@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * <p>Description: 全局异常</p>
  * @author charles·chen
- * @version v2.0
+ * @version v1.0
  */
 @Slf4j
 @ControllerAdvice
